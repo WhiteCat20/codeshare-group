@@ -1,0 +1,48 @@
+.login {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+ // height: 100vh; 
+ margin-top: 5%;
+ width: 100vw;
+
+ &__title {
+  font-size: 32px;
+  // margin-bottom: 20px;
+ }
+
+ &__form {
+  // width: 30%;
+  padding: 20px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+
+  &__item {
+   display: flex;
+   flex-direction: column;
+   margin: 1rem 0;
+
+   &__input {
+    padding: 10px;
+    background-color: #eeee;
+    margin-top: 5px;
+   }
+
+   &__textarea {
+    padding: 10px;
+    background-color: #eeee;
+    height: 220px;
+    // overflow-y: scroll;
+    // max-height: 300px;
+    /* Set a maximum height for the textarea */
+    overflow: auto;
+    /* Enable scroll when content exceeds max height */
+
+   }
+
+   :focus {
+    outline: none;
+   }
+  }
+ }
+}
