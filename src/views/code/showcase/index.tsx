@@ -63,23 +63,19 @@ const CodeShowcaseView = () => {
         </Link>
       </p>
       <div>
-        {data && (
-          <>
-            <input
-              type="text"
-              className="bg-slate-200 w-[300px] p-2"
-              placeholder="Search by name"
-              value={search}
-              onChange={(e: any) => setSearch(e.target.value)}
-            />
-            <button
-              onClick={handleRefresh}
-              className="bg-blue-500 text-white p-2 ml-4"
-            >
-              Refresh Data
-            </button>
-          </>
-        )}
+        <input
+          type="text"
+          className="bg-slate-200 w-[300px] p-2"
+          placeholder="Search by name"
+          value={search}
+          onChange={(e: any) => setSearch(e.target.value)}
+        />
+        <button
+          onClick={handleRefresh}
+          className="bg-blue-500 text-white p-2 ml-4"
+        >
+          Refresh Data
+        </button>
       </div>
       {isLoading ? (
         <div className="mt-10">Loading...</div>
