@@ -77,32 +77,36 @@ const CodeShowcaseView = () => {
           Refresh Data
         </button>
       </div>
-      {isLoading ? (
-        <div className="mt-10">Loading...</div>
-      ) : filteredData.length > 0 ? (
-        filteredData.map((i: any) => (
-          <div className={styles.showcase__codes} key={i.id}>
-            <div className="flex justify-between">
-              <h2 className={styles.showcase__codes__sender}>{i.name}</h2>
+      {data ? (
+        isLoading ? (
+          <div className="mt-10">Loading...</div>
+        ) : filteredData.length > 0 ? (
+          filteredData.map((i: any) => (
+            <div className={styles.showcase__codes} key={i.id}>
+              <div className="flex justify-between">
+                <h2 className={styles.showcase__codes__sender}>{i.name}</h2>
+              </div>
+              <code>
+                <div
+                  className={styles.showcase__codes__code}
+                  dangerouslySetInnerHTML={{ __html: i.code }}
+                />
+              </code>
+              {data && (
+                <button
+                  className="w-[100%] mt-3 p-2 bg-red-600 text-white"
+                  onClick={() => handeDeleteCodeById(i.id)}
+                >
+                  Delete
+                </button>
+              )}
             </div>
-            <code>
-              <div
-                className={styles.showcase__codes__code}
-                dangerouslySetInnerHTML={{ __html: i.code }}
-              />
-            </code>
-            {data && (
-              <button
-                className="w-[100%] mt-3 p-2 bg-red-600 text-white"
-                onClick={() => handeDeleteCodeById(i.id)}
-              >
-                Delete
-              </button>
-            )}
-          </div>
-        ))
+          ))
+        ) : (
+          <div className="mt-10">No matched data</div>
+        )
       ) : (
-        <div className="mt-10">No matched data</div>
+        <h1 className="mt-10">Admin access only</h1>
       )}
     </div>
   );
